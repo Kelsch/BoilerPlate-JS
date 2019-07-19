@@ -12,6 +12,5 @@ const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
 const modalButton = document.querySelector('.mdc-ripple-upgraded--unbounded');
 
 modalButton.addEventListener('click', (event) => {
-    console.log(event)
     drawer.open = true;
 });
