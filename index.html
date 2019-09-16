@@ -20,7 +20,7 @@
         <div class="mdc-drawer__content">
             <nav class="mdc-list">
                 <a class="mdc-list-item mdc-list-item--activated" href="#" tabindex="0" data-title-name="Home" aria-selected="true"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>Inbox</a>
-                <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Star"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star</a>
+                <a class="mdc-list-item" href="#/star.html" tabindex="-1" data-title-name="Star"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star</a>
                 <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Sent Mail"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>Sent Mail</a>
                 <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Drafts"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>Drafts</a>
                 <hr class="mdc-list-divider">
@@ -67,16 +67,23 @@
 
     function changePage() {
         var title = document.getElementById('boilerPlate_title');
-        title.innerText = this.getAttribute('data-title-name');
+        var pageTitle = this.getAttribute('data-title-name');
+        title.innerText = pageTitle;
 
         var body = document.getElementById('boilerPlate_body');
 
+        var url = pageTitle == 'Home' ? 'index.html' : `lib/views/${pageTitle.toLowerCase()}.html`;
+
         var xhr= new XMLHttpRequest();
-        xhr.open('GET', 'lib/views/star.html', true);
+        xhr.open('GET', url, true);
         xhr.onreadystatechange= function() {
             if (this.readyState!==4) return;
             if (this.status!==200) return; // or whatever error handling you want
-            body.innerHTML= this.responseText;
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(this.response, "text/html");
+            var newBody = xmlDoc.getElementById('boilerPlate_body');
+            
+            body.innerHTML = newBody.innerHTML;
         };
         xhr.send();
     }
