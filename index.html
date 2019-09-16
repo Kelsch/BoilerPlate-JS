@@ -19,17 +19,18 @@
         </div>
         <div class="mdc-drawer__content">
             <nav class="mdc-list">
-                <a class="mdc-list-item mdc-list-item--activated" href="#" tabindex="0" aria-selected="true"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>Inbox</a>
-                <a class="mdc-list-item" href="#" tabindex="-1"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star</a>
-                <a class="mdc-list-item" href="#" tabindex="-1"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>Sent Mail</a>
-                <a class="mdc-list-item" href="#" tabindex="-1"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>Drafts</a>
+                <a class="mdc-list-item mdc-list-item--activated" href="#" tabindex="0" data-title-name="Home" aria-selected="true"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>Inbox</a>
+                <a class="mdc-list-item" href="#/star.html" tabindex="-1" data-title-name="Star"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star</a>
+                <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Sent Mail"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>Sent Mail</a>
+                <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Drafts"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>Drafts</a>
                 <hr class="mdc-list-divider">
                 <h6 class="mdc-list-group__subheader">Labels</h6>
-                <a class="mdc-list-item" href="#" tabindex="-1"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>Family</a>
-                <a class="mdc-list-item" href="#" tabindex="-1"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>Friends</a>
-                <a class="mdc-list-item" href="#" tabindex="-1"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>Work</a>
-                <hr class="mdc-list-divider"><a class="mdc-list-item" href="#" tabindex="-1"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings</i>Settings</a>
-                <a class="mdc-list-item" href="#" tabindex="-1"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">announcement</i>Help &amp; feedback</a>
+                <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Family"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>Family</a>
+                <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Friends"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>Friends</a>
+                <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Work"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">bookmark</i>Work</a>
+                <hr class="mdc-list-divider">
+                <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Settings"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">settings</i>Settings</a>
+                <a class="mdc-list-item" href="#" tabindex="-1" data-title-name="Help &amp; feedback"><i class="material-icons mdc-list-item__graphic" aria-hidden="true">announcement</i>Help &amp; feedback</a>
             </nav>
         </div>
     </aside>
@@ -40,15 +41,54 @@
             <div class="mdc-top-app-bar__row">
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
                     <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded">menu</button>
-                    <span class="mdc-top-app-bar__title">Title</span>
+                    <span id="boilerPlate_title" class="mdc-top-app-bar__title">Title</span>
                 </section>
             </div>
         </header>
-        <div class="project-body">
+        <div id="boilerPlate_body" class="project-body">
             Body
         </div>
     </div>
     
     <script src="./build/app.bundle.js"></script>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', titleChange);
+
+    function titleChange(params) {
+        var pageClass = document.getElementsByClassName('mdc-list-item');
+
+        for (let i = 0; i < pageClass.length; i++) {
+            const element = pageClass[i];
+            element.addEventListener('click', changePage);
+        }
+    }
+
+    function changePage() {
+        var title = document.getElementById('boilerPlate_title');
+        var pageTitle = this.getAttribute('data-title-name');
+        title.innerText = pageTitle;
+
+        var body = document.getElementById('boilerPlate_body');
+
+        var url = pageTitle == 'Home' ? 'index.html' : `lib/views/${pageTitle.toLowerCase()}.html`;
+
+        var xhr= new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.onreadystatechange= function() {
+            if (this.readyState!==4) return;
+            if (this.status!==200) return; // or whatever error handling you want
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(this.response, "text/html");
+            var newBody = xmlDoc.getElementById('boilerPlate_body');
+            
+            body.innerHTML = newBody.innerHTML;
+        };
+        xhr.send();
+    }
+
+</script>
+
 </body>
 </html>
