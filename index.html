@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <link href="./lib/style/main.css" rel="stylesheet">
+    <link href="./lib/style/calendar.css" rel="stylesheet">
     <title>PDShipping</title>
 </head>
 <body style="margin: 0px;">
@@ -40,8 +41,8 @@
         <header style="position: inherit;" class="mdc-top-app-bar">
             <div class="mdc-top-app-bar__row">
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                    <button class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded">menu</button>
-                    <span id="boilerPlate_title" class="mdc-top-app-bar__title">Title</span>
+                    <button style="display: none;" class="mdc-icon-button material-icons mdc-top-app-bar__navigation-icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded">menu</button>
+                    <span id="boilerPlate_title" class="mdc-top-app-bar__title">PDShipping</span>
                 </section>
             </div>
         </header>
@@ -54,7 +55,28 @@
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', titleChange);
+    /* document.addEventListener('DOMContentLoaded', titleChange); */
+
+    document.addEventListener('DOMContentLoaded', pageLoaded);
+
+    function pageLoaded(params) {
+        console.log(params);
+
+        var body = document.getElementById('boilerPlate_body');
+
+        var xhr= new XMLHttpRequest();
+        xhr.open('GET', `lib/views/calendar.html`, true);
+        xhr.onreadystatechange= function() {
+            if (this.readyState!==4) return;
+            if (this.status!==200) return; // or whatever error handling you want
+            var parser = new DOMParser();
+            var xmlDoc = parser.parseFromString(this.response, "text/html");
+            var newBody = xmlDoc.getElementById('boilerPlate_body');
+            
+            body.innerHTML = newBody.innerHTML;
+        };
+        xhr.send();
+    }
 
     function titleChange(params) {
         var pageClass = document.getElementsByClassName('mdc-list-item');

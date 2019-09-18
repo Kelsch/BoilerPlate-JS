@@ -1,0 +1,27 @@
+.calendarGrid {
+    border-left: #dadce0 1px solid;
+}
+
+.dayOfWeek {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    border-bottom: #dadce0 1px solid;
+}
+
+.dateGrid {
+    text-align: center;
+    border-left: #dadce0 1px solid;
+}
+
+.date {
+    padding: 10px;
+    border-right: #dadce0 1px solid;
+}
+
+.dateWeek {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: #dadce0 1px solid;
+    height: 162px;
+}
