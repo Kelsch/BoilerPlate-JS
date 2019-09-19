@@ -57,11 +57,9 @@
 
     /* document.addEventListener('DOMContentLoaded', titleChange); */
 
-    document.addEventListener('DOMContentLoaded', pageLoaded);
+    document.addEventListener('DOMContentLoaded', (e) => {pageLoaded(e); placeLoads(e); });
 
     function pageLoaded(params) {
-        console.log(params);
-
         var body = document.getElementById('boilerPlate_body');
 
         var xhr= new XMLHttpRequest();
@@ -108,6 +106,14 @@
             body.innerHTML = newBody.innerHTML;
         };
         xhr.send();
+    }
+
+    function placeLoads(params) {
+        /* console.log(document.body.clientHeight, document.getElementById('calendar_label')) */
+
+        var element = document.getElementById('calendar_label');
+
+        console.log(params)
     }
 
 </script>
