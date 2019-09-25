@@ -41,8 +41,9 @@
 .loadContainer {
     overflow-y: auto;
     background: #cfffff;
-    max-height: 275px;
+    /* max-height: 275px; */
     min-height: 140px;
+    overscroll-behavior-y: none;
 }
 
 .load {
