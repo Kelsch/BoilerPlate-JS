@@ -1,3 +1,9 @@
+html,
+body {
+  /* position: fixed; */
+  overflow: hidden;
+}
+
 body {
     font-family: 'Roboto', 'sans-serif';
     -moz-osx-font-smoothing: grayscale;
