@@ -2,6 +2,18 @@
     border-left: #dadce0 1px solid;
 }
 
+.calendarContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.calendarLoadContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
 .calendarLabel {
     padding: 0px 0px 10px 0px;
     color: #ababab;
@@ -40,9 +52,6 @@
 
 .loadContainer {
     overflow-y: auto;
-    background: #cfffff;
-    /* max-height: 275px; */
-    min-height: 140px;
     overscroll-behavior-y: none;
 }
 
