@@ -46,11 +46,16 @@
                 </section>
             </div>
         </header>
+        <button class="load mdc-button mdc-button--unelevated">
+            <span class="loadName mdc-button__label">
+                Small Truck: 3
+            </span>
+        </button>
         <div id="boilerPlate_body" class="project-body">
             Body
         </div>
     </div>
-    
+
     <script src="./build/app.bundle.js"></script>
 
 <script>
@@ -64,7 +69,7 @@
 
         var xhr= new XMLHttpRequest();
         xhr.open('GET', `lib/views/calendar.html`, true);
-        xhr.onreadystatechange= function() {
+        xhr.onreadystatechange = function() {
             if (this.readyState!==4) return;
             if (this.status!==200) return; // or whatever error handling you want
             var parser = new DOMParser();
@@ -74,6 +79,11 @@
             body.innerHTML = newBody.innerHTML;
         };
         xhr.send();
+
+        /* var tag = document.createElement("script");
+        tag.src = "./lib/scripts/app.js";
+        tag.type = "text/html";
+        document.getElementsByTagName("head")[0].appendChild(tag); */
     }
 
     function titleChange(params) {
