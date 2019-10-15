@@ -10,25 +10,6 @@
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
     <link href="./lib/style/main.css" rel="stylesheet">
     <link href="./lib/style/calendar.css" rel="stylesheet">
-
-    <script>
-        /* var body = document.getElementById('boilerPlate_body'); */
-
-        var xhr= new XMLHttpRequest();
-        xhr.open('GET', `lib/views/calendar.html`, true);
-        xhr.onreadystatechange = function() {
-            if (this.readyState!==4) return;
-            if (this.status!==200) return; // or whatever error handling you want
-            var parser = new DOMParser();
-            var xmlDoc = parser.parseFromString(this.response, "text/html");
-            var newBody = xmlDoc.getElementById('boilerPlate_body');
-            
-            /* body.innerHTML = newBody.innerHTML; */
-
-            
-        };
-        xhr.send();
-    </script>
     
     <title>PDShipping</title>
 </head>
@@ -36,7 +17,8 @@
     <aside class="mdc-drawer mdc-drawer--modal">
         <div class="mdc-drawer__header">
             <h3 class="mdc-drawer__title">Mail</h3>
-            <h6 class="mdc-drawer__subtitle">email@material.io</h6>
+            <h6 class="mdc-drawer__su.
+            btitle">email@material.io</h6>
         </div>
         <div class="mdc-drawer__content">
             <nav class="mdc-list">
@@ -66,32 +48,203 @@
                 </section>
             </div>
         </header>
-        <button class="load mdc-button mdc-button--unelevated">
-            <span class="loadName mdc-button__label">
-                Small Truck: 3
-            </span>
-        </button>
         <div id="boilerPlate_body" class="project-body">
-            Body
+            <div class="calendarContainer">
+                <div class="calendarBodyContainer">
+                    <div class="calendarMonth calendarLabel">
+                        September 2019
+                    </div>
+                    <div class="dayOfWeek">
+                        <div>Su</div>
+                        <div>M</div>
+                        <div>T</div>
+                        <div>W</div>
+                        <div>Th</div>
+                        <div>F</div>
+                        <div>Sa</div>
+                    </div>
+                    <div class="calendarGrid">
+                        <div class="dateGrid">
+                            <div class="dateWeek">
+                                <div class="date">Sept 1</div>
+                                <div class="date">2</div>
+                                <div class="date">3</div>
+                                <div class="date">4</div>
+                                <div class="date">5</div>
+                                <div class="date">6</div>
+                                <div class="date">7</div>
+                            </div>
+        
+                            <div class="dateWeek">
+                                <div class="date">8</div>
+                                <div class="date">9</div>
+                                <div class="date">10</div>
+                                <div class="date">11</div>
+                                <div class="date">12</div>
+                                <div class="date">13</div>
+                                <div class="date">14</div>
+                            </div>
+        
+                            <div class="dateWeek">
+                                <div class="date">15</div>
+                                <div class="date">16</div>
+                                <div class="date">17</div>
+                                <div class="date">18</div>
+                                <div class="date">19</div>
+                                <div class="date">20</div>
+                                <div class="date">21</div>
+                            </div>
+        
+                            <div class="dateWeek">
+                                <div class="date">22</div>
+                                <div class="date">23</div>
+                                <div class="date">24</div>
+                                <div class="date">25</div>
+                                <div class="date">26</div>
+                                <div class="date">27</div>
+                                <div class="date">28</div>
+                            </div>
+        
+                            <div class="dateWeek">
+                                <div class="date">29</div>
+                                <div class="date">30</div>
+                                <div class="date">Oct 1</div>
+                                <div class="date">2</div>
+                                <div class="date">3</div>
+                                <div class="date">4</div>
+                                <div class="date">5</div>
+                            </div>
+        
+                            <div class="dateWeek">
+                                <div class="date">6</div>
+                                <div class="date">7</div>
+                                <div class="date">8</div>
+                                <div class="date">9</div>
+                                <div class="date">10</div>
+                                <div class="date">11</div>
+                                <div class="date">12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div id="calendar_label" class="calendarLoadContainer">
+                    <div class="calendarLabel loadLabel">Loads</div>
+                    <div class="loadContainer">
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: 3
+                            </span>
+                        </button>
+                        <button class="load mdc-button mdc-button--unelevated">
+                            <span class="loadName mdc-button__label">
+                                Small Truck: Last
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
+<!-- <script src="./build/app.bundle.js"></script> -->
+<script src="./build/app.bundle.js.br"></script>
 <script>
-
-    /* var body = document.getElementById('boilerPlate_body');
-
-    var xhr= new XMLHttpRequest();
-    xhr.open('GET', `lib/views/calendar.html`, true);
-    xhr.onreadystatechange = function() {
-        if (this.readyState!==4) return;
-        if (this.status!==200) return; // or whatever error handling you want
-        var parser = new DOMParser();
-        var xmlDoc = parser.parseFromString(this.response, "text/html");
-        var newBody = xmlDoc.getElementById('boilerPlate_body');
-        
-        body.innerHTML = newBody.innerHTML;
-    };
-    xhr.send(); */
     
     /* document.addEventListener('DOMContentLoaded', titleChange); */
 
@@ -142,8 +295,6 @@
     }
 
 </script>
-
-<script src="./build/app.bundle.js"></script>
 
 </body>
 </html>
