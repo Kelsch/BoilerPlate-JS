@@ -51,8 +51,10 @@
         <div id="boilerPlate_body" class="project-body">
             <div class="calendarContainer">
                 <div class="calendarBodyContainer">
-                    <div class="calendarMonth calendarLabel">
-                        September 2019
+                    <div class="month-labelContainer">
+                        <div class="material-icons month-change" data-change="back">keyboard_arrow_left</div>
+                        <div class="material-icons month-change" data-change="forward">keyboard_arrow_right</div>
+                        <div id="calendar_month" class="calendarMonth calendarLabel"></div>
                     </div>
                     <div class="dayOfWeek">
                         <div>Su</div>
@@ -64,67 +66,7 @@
                         <div>Sa</div>
                     </div>
                     <div class="calendarGrid">
-                        <div class="dateGrid">
-                            <div class="dateWeek">
-                                <div class="date">Sept 1</div>
-                                <div class="date">2</div>
-                                <div class="date">3</div>
-                                <div class="date">4</div>
-                                <div class="date">5</div>
-                                <div class="date">6</div>
-                                <div class="date">7</div>
-                            </div>
-        
-                            <div class="dateWeek">
-                                <div class="date">8</div>
-                                <div class="date">9</div>
-                                <div class="date">10</div>
-                                <div class="date">11</div>
-                                <div class="date">12</div>
-                                <div class="date">13</div>
-                                <div class="date">14</div>
-                            </div>
-        
-                            <div class="dateWeek">
-                                <div class="date">15</div>
-                                <div class="date">16</div>
-                                <div class="date">17</div>
-                                <div class="date">18</div>
-                                <div class="date">19</div>
-                                <div class="date">20</div>
-                                <div class="date">21</div>
-                            </div>
-        
-                            <div class="dateWeek">
-                                <div class="date">22</div>
-                                <div class="date">23</div>
-                                <div class="date">24</div>
-                                <div class="date">25</div>
-                                <div class="date">26</div>
-                                <div class="date">27</div>
-                                <div class="date">28</div>
-                            </div>
-        
-                            <div class="dateWeek">
-                                <div class="date">29</div>
-                                <div class="date">30</div>
-                                <div class="date">Oct 1</div>
-                                <div class="date">2</div>
-                                <div class="date">3</div>
-                                <div class="date">4</div>
-                                <div class="date">5</div>
-                            </div>
-        
-                            <div class="dateWeek">
-                                <div class="date">6</div>
-                                <div class="date">7</div>
-                                <div class="date">8</div>
-                                <div class="date">9</div>
-                                <div class="date">10</div>
-                                <div class="date">11</div>
-                                <div class="date">12</div>
-                            </div>
-                        </div>
+                        <div id="date_grid" class="dateGrid"></div>
                     </div>
                 </div>
         
@@ -242,17 +184,150 @@
         </div>
     </div>
 
-<!-- <script src="./build/app.bundle.js"></script> -->
-<script src="./build/app.bundle.js.br"></script>
+<script src="./build/app.bundle.js"></script>
 <script>
-    
-    /* document.addEventListener('DOMContentLoaded', titleChange); */
+    (function() {
+        document.addEventListener('DOMContentLoaded', () => getCalendar());
+        var selectedDateString;
+        
+        const getCalendar = async () => {
+            var currentDay = new Date();
+            
+            calendarFetch(currentDay);
 
-    /* document.addEventListener('DOMContentLoaded', (e) => {pageLoaded(e); placeLoads(e); });
+            changeMonthSetup();
+        }
 
-    function pageLoaded(params) {
+        async function calendarFetch(selectedDate) {
+            const url = new URL("https://pdwebapi-mf5.conveyor.cloud/api/installerAppData/getCalendar");
 
-    } */
+            var dd = String(selectedDate.getDate()).padStart(2, '0');
+            var mm = String(selectedDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+            const month = selectedDate.toLocaleString('default', { month: 'long' });
+            var yyyy = selectedDate.getFullYear();
+            var monthCount = 1;
+            selectedDateString = `${mm}/${dd}/${yyyy}`
+            
+            const params = { date: selectedDateString, monthCount: monthCount };
+
+            Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+            var titleElement = document.getElementById('calendar_month');
+            titleElement.textContent = `${month} ${yyyy}`
+                
+            const response = await fetch(url);
+            const calendarJson = await response.json();
+            
+            createCalendarDay(calendarJson, selectedDate);
+        }
+        
+        function createCalendarDay(calendarJson, selectedDate) {
+            var dateGrid = document.getElementById('date_grid');
+            dateGrid.innerHTML = '';
+            var beginingOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
+            var beginingOfMonthWeek = beginingOfMonth.getWeekNumber() - 1;
+            var endOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0);
+            var endOfMonthWeek = endOfMonth.getWeekNumber();
+            var selectedDateWeek = selectedDate.getWeekNumber() - 1;
+
+            for (var i = 0; i < calendarJson.length; i++){
+                var obj = calendarJson[i];
+                if (obj.wy >= beginingOfMonthWeek && obj.wy <= endOfMonthWeek + 1) {
+                    // console.log(obj.dateId, obj.dd, obj.dw, obj.holidayName, obj.isHoliday, obj.isWorkDay, obj.mm, obj.wm, obj.wy, obj.yy);
+                    
+                    if (obj.dw == 7) {
+                        var dateWeek = document.createElement('div');
+                        dateWeek.classList.add('dateWeek');
+                        dateWeek.setAttribute('id', obj.wy);
+                    }
+
+                    var date = document.createElement('div');
+                    date.classList.add('date');
+                    date.setAttribute('id', obj.dateId);
+
+                    var dateNumber = document.createElement('div');
+                    dateNumber.classList.add('dateNumber');
+                    dateNumber.textContent = obj.dd;
+                    date.append(dateNumber);
+
+                    const currentDay = new Date();
+                    const month = new Date(obj.yy, obj.mm - 1, 1).toLocaleString('default', { month: 'short' });
+
+                    if (obj.dd == currentDay.getDate() && obj.mm == currentDay.getMonth() + 1) {
+                        date.firstChild.classList.add('dateNumber-currentDay');
+                    }
+
+                    if (obj.mm != currentDay.getMonth() + 1) {
+                        date.classList.add('date-greyMonth');
+                    }
+
+                    if (obj.dd == 1) {
+                        dateNumber.textContent = `${month} ${obj.dd}`;
+                    }
+
+                    if (obj.dw == 7 && obj.wy == endOfMonthWeek + 1) {
+                        return;
+                    }
+
+                    if (dateWeek != null) {
+                        dateWeek.append(date);
+                        dateGrid.append(dateWeek);
+
+                        document.getElementById(obj.dateId).addEventListener('click', () => {selectDay(event)});
+                    }
+                }
+            }
+        }
+
+        Date.prototype.getWeekNumber = function(){
+            var d = new Date(Date.UTC(this.getFullYear(), this.getMonth(), this.getDate()));
+            var dayNum = d.getUTCDay() || 7;
+            d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+            var yearStart = new Date(Date.UTC(d.getUTCFullYear(),0,1));
+            return Math.ceil((((d - yearStart) / 86400000) + 1)/7)
+        };
+
+        function selectDay(event) {
+            var target = event.target;
+
+            var dateNumber = document.querySelectorAll('.dateNumber, .date-selectedMobile');
+
+            var touchDevice = (navigator.maxTouchPoints || 'ontouchstart' in document.documentElement);
+
+            for (let i = 0; i < dateNumber.length; i++) {
+                const element = dateNumber[i];
+                element.classList.remove('date-selectedMobile');
+                element.classList.remove('dateNumber-selected');
+            }
+
+            if (target.classList.contains('dateNumber') && !touchDevice) {
+                target.classList.add('dateNumber-selected');
+            }
+            else {
+                if (touchDevice) {
+                    target.classList.add('date-selectedMobile');
+                }
+                else {
+                    target.firstChild.classList.add('dateNumber-selected');
+                }
+            }
+        }
+
+        function changeMonthSetup() {
+            document.querySelector('#calendar_month').addEventListener('click', () => {calendarFetch(new Date());});
+            document.querySelectorAll('.month-change').forEach(function (element) {
+                element.addEventListener('click', () => changeMonth(element));
+            });
+        }
+
+        function changeMonth(element) {
+            var change = element.getAttribute('data-change');
+            var selectedMonth = new Date(selectedDateString);
+            selectedMonth = change == 'back' ? new Date(selectedMonth.setDate(0)) : new Date(selectedMonth.getFullYear(), (selectedMonth.getMonth() + 1) % 12, 1);
+            
+            calendarFetch(selectedMonth);
+        }
+    })();
 
     function titleChange(params) {
         var pageClass = document.getElementsByClassName('mdc-list-item');

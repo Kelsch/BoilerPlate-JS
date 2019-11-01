@@ -14,14 +14,35 @@
     overflow-y: hidden;
 }
 
-.calendarLabel {
+.month-labelContainer {
+    display: flex;
+    align-items: center;
     padding: 0px 0px 10px 0px;
+}
+
+.calendarLabel {
+    /* padding: 0px 0px 10px 0px; */
     color: #6b6b6b;
     font-size: 1.3rem;
 }
 
+.month-change {
+    margin: 0px 5px 0px 0px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.month-change:hover {
+    background-color: #efefef;
+}
+
+.month-change:active {
+    background-color: #e4e4e4;
+}
+
 .calendarMonth {
     color: black;
+    cursor: pointer;
 }
 
 .dayOfWeek {
@@ -45,9 +66,46 @@
 }
 
 .date {
+    display: flex;
+    justify-content: center;
     padding: 10px;
     border-right: #dadce0 1px solid;
     min-width: 20px;
+    cursor: pointer;
+}
+
+.date:hover {
+    background-color: #efefef;
+}
+
+.date:active {
+    background-color: #e4e4e4;
+}
+
+.date-selectedMobile {
+    background-color: #efefef;
+}
+
+.date-greyMonth {
+    color: #7d7d7d;
+}
+
+.dateNumber {
+    align-self: start;
+    padding: 5px;
+    border-radius: 20px;
+    min-width: 18px;
+    transition: .2s ease-out;
+}
+
+.dateNumber-selected {
+    background-color: #66a6ff;
+    color: #ffffff;
+}
+
+.dateNumber-currentDay {
+    background-color: #2f7be2;
+    color: #ffffff;
 }
 
 .loadContainer {
