@@ -11,16 +11,25 @@ module.exports = {
         filename: 'app.bundle.js'
     },
     module: {
-        rules: [{
-            test: /\.js?$/,
-            exclude: /node_modules/,
-            loader: 'babel-loader',
-            query: {
-                presets: ['@babel/preset-env']
+        rules: [
+            {
+                test: /\.js?$/,
+                exclude: /node_modules/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['@babel/preset-env']
+                }
+            },
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             }
-        }]
+        ]
     },
     mode: 'development',
+    devServer: {
+        compress: true
+    }
     // plugins: [
     //     new CompressionPlugin({
     //         filename: '[path].br[query]',

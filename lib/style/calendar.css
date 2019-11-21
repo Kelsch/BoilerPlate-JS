@@ -120,7 +120,7 @@
 }
 
 .dateNumber-currentDay {
-    background-color: #2f7be2;
+    background-color: #296cc7;
     color: #ffffff;
 }
 
@@ -137,4 +137,10 @@
 .loadLabel {
     padding-top: 5px;
     font-size: 0.9rem;
+}
+
+@media screen and (max-height: 600px) {
+    .dateGrid {
+        height: auto;
+    }
 }

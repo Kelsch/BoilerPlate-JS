@@ -2,14 +2,15 @@
 self.addEventListener('install', function(event) {
     // Perform some task
     event.waitUntil(
-      caches.open('pdinstall-static-v3').then(function(cache) {
+      caches.open('pdinstall-static-v4').then(function(cache) {
         return cache.addAll([
           '/lib/images/icon-192.png',
           '/lib/images/icon-512.png',
           '/lib/style/calendar.css',
           '/lib/style/main.css',
-          '/index.html',
-          '/'
+          '/lib/scripts/swiped-events.js'
+          // '/index.html',
+          // '/'
         ]);
       })
     );
@@ -23,6 +24,7 @@ self.addEventListener('activate', function(event) {
           // Return true if you want to remove this cache,
           // but remember that caches are shared across
           // the whole origin
+          console.log(cacheName, new Date(self.performance.timeOrigin), self.performance.timeOrigin)
         }).map(function(cacheName) {
           return caches.delete(cacheName);
         })
@@ -31,15 +33,18 @@ self.addEventListener('activate', function(event) {
   );
 });
 
-// self.addEventListener('fetch', function(event) {
-//   event.respondWith(
-//     caches.open('pdinstall-dynamic').then(function(cache) {
-//       return cache.match(event.request).then(function (response) {
-//         return response || fetch(event.request).then(function(response) {
-//           cache.put(event.request, response.clone());
-//           return response;
-//         });
-//       });
-//     })
-//   );
-// });
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.open('pdinstall-dynamic').then(function(cache) {
+      return cache.match(event.request).then(function (response) {
+        return response || fetch(event.request).then(function(response) {
+          if (event.request.method == 'POST') {
+            return response;
+          }
+          cache.put(event.request, response.clone());
+          return response;
+        });
+      });
+    })
+  );
+});
