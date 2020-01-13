@@ -74,7 +74,7 @@
 }
 
 .date {
-    display: flex;
+    display: grid;
     justify-content: center;
     padding: 10px;
     border-right: #dadce0 1px solid;
@@ -82,13 +82,13 @@
     cursor: pointer;
 }
 
-.date:hover {
-    background-color: #efefef;
-}
+    .date:hover {
+        background-color: #efefef;
+    }
 
-.date:active {
-    background-color: #e4e4e4;
-}
+    .date:active {
+        background-color: #e4e4e4;
+    }
 
 .date-nonWorkDay {
     background-color: #f7f7f7;
@@ -122,6 +122,30 @@
 .dateNumber-currentDay {
     background-color: #296cc7;
     color: #ffffff;
+}
+
+.dateNumber-jobIndicator {
+    align-items: center;
+    display: grid;
+    grid-auto-columns: max-content;
+    grid-gap: 5px;
+    grid-auto-flow: column;
+    overflow: hidden;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.dateNumber-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #a500bd;
+    border-radius: 10px;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 .loadContainer {
