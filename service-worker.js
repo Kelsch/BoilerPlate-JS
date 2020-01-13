@@ -24,8 +24,9 @@ self.addEventListener('activate', function(event) {
           // Return true if you want to remove this cache,
           // but remember that caches are shared across
           // the whole origin
-          console.log(cacheName, new Date(self.performance.timeOrigin), self.performance.timeOrigin)
-        }).map(function(cacheName) {
+          // return true;
+        })
+        .map(function(cacheName) {
           return caches.delete(cacheName);
         })
       );
@@ -37,11 +38,15 @@ self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches.open('pdinstall-dynamic').then(function(cache) {
       return cache.match(event.request).then(function (response) {
-        return response || fetch(event.request).then(function(response) {
+        return fetch(event.request)
+        .then(function(response) {
           if (event.request.method == 'POST') {
             return response;
           }
           cache.put(event.request, response.clone());
+          return response;
+        })
+        .catch(() => {
           return response;
         });
       });

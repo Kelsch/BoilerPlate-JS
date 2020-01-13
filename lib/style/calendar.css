@@ -129,6 +129,10 @@
     overscroll-behavior-y: none;
 }
 
+.stopScroll {
+    overflow-y: hidden;
+}
+
 .load {
     width: -webkit-fill-available;
     margin: 5px;
