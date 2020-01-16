@@ -73,3 +73,9 @@
 .loadDetails-textTransparent {
     color: transparent;
 }
+
+@media screen and (max-height: 800px) {
+    .loadDetailsContainer {
+        max-height: 80vh;
+    }
+}

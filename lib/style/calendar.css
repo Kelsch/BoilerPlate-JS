@@ -167,6 +167,12 @@
     font-size: 0.9rem;
 }
 
+@media screen and (max-height: 717px) {
+    .dateNumber {
+        padding: 0px;
+    }
+}
+
 @media screen and (max-height: 600px) {
     .dateGrid {
         height: auto;
