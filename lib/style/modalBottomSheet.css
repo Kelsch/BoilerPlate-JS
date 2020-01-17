@@ -64,8 +64,9 @@
 .loadDetails-loadJobCard {
     margin: 5px;
     padding: 5px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    /* border-top-left-radius: 10px; */
+    /* border-top-right-radius: 10px; */
+    border-radius: 3px;
     background-color: white;
     height: inherit;
 }
