@@ -4,11 +4,14 @@ const CompressionPlugin = require('compression-webpack-plugin');
 module.exports = {
     entry: {
         app: ['babel-polyfill',
-                './lib/scripts/app.js']
+                './lib/scripts/app.js'],
+        cardElement: './lib/scripts/jobCardElement.js'
     },
     output: {
+        // path: path.resolve(__dirname, 'build'),
+        // filename: 'app.bundle.js'
         path: path.resolve(__dirname, 'build'),
-        filename: 'app.bundle.js'
+        filename: '[name].bundle.js'
     },
     module: {
         rules: [
@@ -18,7 +21,7 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     presets: ['@babel/preset-env']
-                }
+                }                
             },
             {
                 test: /\.css$/,
