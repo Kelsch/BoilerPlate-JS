@@ -33,6 +33,14 @@
     display: block;
 }
 
+#loadDetails_contentContainer {
+    overflow-y: auto;
+    height: calc(100% - 22px);
+    min-height: 300px;
+    position: absolute;
+    width: 100%;
+}
+
 .loadDetails-loader {
     animation: spin 2s linear infinite;
     position: fixed;
