@@ -112,6 +112,7 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
+    pointer-events: none;
 }
 
 .dateNumber-selected {
@@ -146,6 +147,7 @@
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+/Edge */
     user-select: none; /* Standard */
+    pointer-events: none;
 }
 
 .loadContainer {
@@ -165,6 +167,8 @@
 .loadLabel {
     padding-top: 5px;
     font-size: 0.9rem;
+    text-align: center;
+    font-weight: bold;
 }
 
 @media screen and (max-height: 717px) {

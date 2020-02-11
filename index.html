@@ -13,6 +13,7 @@
     <link href="./lib/style/main.css" rel="stylesheet">
     <link href="./lib/style/calendar.css" rel="stylesheet">
     <link href="./lib/style/modalBottomSheet.css" rel="stylesheet">
+    <script src="./lib/scripts/require.js"></script>
     <script src="./lib/scripts/swiped-events.js"></script>
     <!-- <script src="./lib/scripts/jobCardElement.js"></script> -->
     <script src="./build/cardElement.bundle.js"></script>
@@ -91,9 +92,9 @@
                 </div>
         
                 <div id="calendar_label" class="calendarLoadContainer">
-                    <div class="calendarLabel loadLabel">Jobs</div>
+                    <div id="calendar_containerDate" class="calendarLabel loadLabel">Jobs</div>
                     <div class="loadContainer">
-                        <button class="load mdc-button mdc-button--unelevated">
+                        <!-- <button class="load mdc-button mdc-button--unelevated">
                             <div class="mdc-button__ripple"></div>
                             <span class="loadName mdc-button__label">
                                 Small Truck: 3
@@ -218,7 +219,7 @@
                             <span class="loadName mdc-button__label">
                                 Small Truck: Last
                             </span>
-                        </button>
+                        </button> -->
                     </div>
                 </div>
             </div>
@@ -263,7 +264,7 @@
                             </div>
                         </div>
                         <div class="loadDetails-content loadDetails-loadJobCard">
-                            <job-card jobName="Test" jobAddress="Test Address" jobCabinetCount="0"></job-card>
+                            <job-card jobName="Test" jobAddress="Test Address 1" jobCabinetCount="0"></job-card>
                         </div>
                     </div>
                     <div>
@@ -303,9 +304,9 @@
         </div>
     </div>
 
-<script src="./lib/scripts/calendar.js"></script>
 <!-- <script src="/service-start.js"></script> -->
 <script src="./build/app.bundle.js"></script>
+<script src="./lib/scripts/calendar.js"></script>
 <script src="./lib/scripts/modal.js"></script>
 <script>
     function titleChange(params) {
@@ -317,6 +318,15 @@
         }
     }
 
+    function ChangeContainerDate(dateSelected = new Date()) {
+        let containerDateElement = document.getElementById("calendar_containerDate");
+        let containerDate = new Date(dateSelected);
+        
+        containerDateElement.textContent = containerDate.toLocaleDateString();
+    }
+    
+    ChangeContainerDate();
+    
     function changePage() {
         var title = document.getElementById('boilerPlate_title');
         var pageTitle = this.getAttribute('data-title-name');
