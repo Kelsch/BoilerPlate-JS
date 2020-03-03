@@ -72,8 +72,6 @@
 .loadDetails-loadJobCard {
     margin: 5px;
     padding: 5px;
-    /* border-top-left-radius: 10px; */
-    /* border-top-right-radius: 10px; */
     border-radius: 3px;
     background-color: white;
     height: inherit;
@@ -81,6 +79,36 @@
 
 .loadDetails-textTransparent {
     color: transparent;
+}
+
+.loadDetails-jobButtons {
+    display: flex;
+}
+
+.loadDetails-jobButton {
+    margin: 0px 5px;
+    padding: 0px 10px;
+    cursor: pointer;
+    border-radius: 3px;
+    line-height: 0;
+}
+
+    .loadDetails-jobButton:hover {
+        background-color: #eaeaea;
+    }
+
+    .loadDetails-jobButton:active {
+        background-color: #cfcfcf;
+    }
+
+.loadDetails-jobShipBtn {
+    margin-right: 2%;
+}
+
+@media screen and (max-width: 800px) {
+    .loadDetails-jobShipBtn {
+        margin-right: auto;
+    }
 }
 
 @media screen and (max-height: 800px) {
