@@ -60,7 +60,7 @@
 }
 
 .loadDetails-loadName {
-    padding-top: 5px;
+    padding: 5px;
     text-align: center;
     cursor: n-resize;
 }
@@ -95,19 +95,34 @@
 
     .loadDetails-jobButton:hover {
         background-color: #eaeaea;
+        color: #5d5d5d;
     }
 
     .loadDetails-jobButton:active {
         background-color: #cfcfcf;
+        color: #2f2f2f;
     }
 
 .loadDetails-jobShipBtn {
     margin-right: 2%;
 }
 
+.loadDetails-jobShippingNoteLabel {
+    font-weight: bold;
+}
+
+.loadDetails-jobShippingNotes {
+    margin: 5px 0px;
+    overflow-y: auto;
+    max-height: 50px;
+}
+
 @media screen and (max-width: 800px) {
-    .loadDetails-jobShipBtn {
+    /* .loadDetails-jobShipBtn {
         margin-right: auto;
+    } */
+    .loadDetails-jobButtons {
+        justify-content: flex-end;
     }
 }
 
