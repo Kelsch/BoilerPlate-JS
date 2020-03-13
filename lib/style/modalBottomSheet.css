@@ -117,6 +117,10 @@
     max-height: 50px;
 }
 
+.material-icons {
+    pointer-events: none;
+}
+
 @media screen and (max-width: 800px) {
     /* .loadDetails-jobShipBtn {
         margin-right: auto;
