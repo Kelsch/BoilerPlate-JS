@@ -121,12 +121,37 @@
     pointer-events: none;
 }
 
-.loadDetails-content {
+.modal-card {
     margin: 5px;
     padding: 5px;
     border-radius: 3px;
     background-color: white;
     height: inherit;
+}
+
+.status-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.note-header {
+    display: flex;
+    font-style: italic;
+    color: #a5a5a5;
+}
+
+.note-header > .note-content {
+    padding-right: 30px;
+}
+
+.button-container {
+    max-width: fit-content;
+}
+
+.note-newNote > textarea {
+    resize: none;
+    min-height: 50px;
+    width: -webkit-fill-available;
 }
 
 @media screen and (max-width: 800px) {
