@@ -17,6 +17,7 @@
     <script src="./lib/scripts/swiped-events.js"></script>
     <!-- <script src="./lib/scripts/jobCardElement.js"></script> -->
     <script src="./build/cardElement.bundle.js"></script>
+    <script src="./build/modalElement.bundle.js"></script>
     <!-- icon in the highest resolution we need it for -->
     <link rel="icon" sizes="192x192" href="lib/images/icon-192.png">
     <!-- reuse same icon for Safari -->
@@ -224,46 +225,10 @@
                 </div>
             </div>
         </div>
-        <div id="info_modal" class="loadDetails-tint">
-            <div id="info_modalContents" class="loadDetailsContainer">
-                <div class="infoDetails-jobName loadDetails-loadName">
-                    14801 A1 Lot 211 Lake View Estates
-                </div>
-                <div id="infoDetails_contentContainer">
-                    Test Info
-                </div>
-            </div>
-        </div>
-        <div id="status_modal" class="loadDetails-tint">
-            <div id="status_modalContents" class="loadDetailsContainer">
-                <div class="infoDetails-jobName loadDetails-loadName">
-                    14801 A1 Lot 211 Lake View Estates
-                </div>
-                <div id="statusDetails_contentContainer">
-                    Status Info
-                </div>
-            </div>
-        </div>
-        <div id="note_modal" class="loadDetails-tint">
-            <div id="note_modalContents" class="loadDetailsContainer">
-                <div class="infoDetails-jobName loadDetails-loadName">
-                    14801 A1 Lot 211 Lake View Estates
-                </div>
-                <div id="noteDetails_contentContainer">
-                    Note Info
-                </div>
-            </div>
-        </div>
-        <div id="job_modal" class="loadDetails-tint">
-            <div id="job_modalContents" class="loadDetailsContainer">
-                <div class="infoDetails-jobName loadDetails-loadName">
-                    14801 A1 Lot 211 Lake View Estates
-                </div>
-                <div id="jobDetails_contentContainer">
-                    Job Info
-                </div>
-            </div>
-        </div>
+        <modal-card modalName="info" jobName="14801 A1 Lot 211 Lake View Estates" ></modal-card>
+        <modal-card modalName="status" jobName="14801 A1 Lot 211 Lake View Estates" ></modal-card>
+        <modal-card modalName="note" jobName="14801 A1 Lot 211 Lake View Estates" ></modal-card>
+        <modal-card modalName="job" jobName="14801 A1 Lot 211 Lake View Estates" >Test</modal-card>
         <div id="boilerPlate_modal" class="loadDetails-tint">
             <div id="boilerPlate_modalContents" class="loadDetailsContainer">
                 <!-- <div id="boiderPlate_loader" class="material-icons loadDetails-loader">refresh</div> -->

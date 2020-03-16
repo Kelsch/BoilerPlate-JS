@@ -5,7 +5,8 @@ module.exports = {
     entry: {
         app: ['babel-polyfill',
                 './lib/scripts/app.js'],
-        cardElement: './lib/scripts/jobCardElement.js'
+        cardElement: './lib/scripts/jobCardElement.js',
+        modalElement: './lib/scripts/modalElement.js'
     },
     output: {
         // path: path.resolve(__dirname, 'build'),
