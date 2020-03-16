@@ -121,6 +121,14 @@
     pointer-events: none;
 }
 
+.loadDetails-content {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 3px;
+    background-color: white;
+    height: inherit;
+}
+
 @media screen and (max-width: 800px) {
     /* .loadDetails-jobShipBtn {
         margin-right: auto;
