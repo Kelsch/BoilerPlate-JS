@@ -33,7 +33,15 @@
     display: block;
 }
 
-#loadDetails_contentContainer {
+/* #loadDetails_contentContainer {
+    overflow-y: auto;
+    height: calc(100% - 22px);
+    min-height: 300px;
+    position: absolute;
+    width: 100%;
+} */
+
+.modal-card-details-container {
     overflow-y: auto;
     height: calc(100% - 22px);
     min-height: 300px;
@@ -126,12 +134,35 @@
     padding: 5px;
     border-radius: 3px;
     background-color: white;
-    height: inherit;
+    height: auto;
 }
 
-.status-card {
+/* .status-card-container {
     display: flex;
-    flex-direction: column;
+} */
+
+.status-card-process {
+    /* display: grid; */
+    /* grid-auto-flow: column; */
+    /* grid-template-columns: repeat(4, 1fr); */
+    /* grid-template-rows: repeat(5, 1fr); */
+    /* grid-template-rows: repeat(auto-fill, minmax(20px, 1fr)); */
+    /* justify-items: center; */
+    justify-content: space-between;
+    display: flex;
+    height: 130px;
+    flex-flow: column wrap;
+}
+
+    .status-card-process > div {
+        display: flex;
+        padding: 2px;
+    }
+
+.status-name {
+    text-align: right;
+    min-width: 115px;
+    padding-right: 8px;
 }
 
 .note-header {
