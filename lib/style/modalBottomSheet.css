@@ -137,10 +137,6 @@
     height: auto;
 }
 
-/* .status-card-container {
-    display: flex;
-} */
-
 .status-card-process {
     /* display: grid; */
     /* grid-auto-flow: column; */
@@ -165,6 +161,81 @@
     padding-right: 8px;
 }
 
+/* Design Set Modal */
+.modal-job-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 10px;
+    text-align: center;
+}
+
+.modal-costs {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-cost-detail {
+    padding: 0px 15px;
+}
+
+.modal-designSets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.modal-designSet-container  {
+    display: grid;
+    /* grid-auto-flow: column; */
+    /* grid-template-rows: repeat(7, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 2px;
+    white-space: nowrap;
+    grid-template-rows: repeat(auto-fit, minmax(17px, 1fr));
+    min-height: 120px;
+}
+
+.designSet-detail {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+}
+
+.designSet-detail-name {
+    text-align: right;
+}
+
+/* Purcahse Item Modal */
+.status-item-title {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.purchaseItem {
+    display: flex;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+.purchaseItem:nth-child(even){
+    background-color: #cacaca;
+}
+
+.purchaseItem-detail {
+    padding-right: 15px;
+    align-self: center;
+}
+
+.purchaseItem-quantity {
+    width: 20px;
+}
+
+.purchaseItem-name {
+    width: 200px;
+    text-align: right;
+    overflow-wrap: break-word;
+}
+
+/* Note Modal */
 .note-header {
     display: flex;
     font-style: italic;
@@ -186,11 +257,20 @@
 }
 
 @media screen and (max-width: 800px) {
-    /* .loadDetails-jobShipBtn {
-        margin-right: auto;
-    } */
     .loadDetails-jobButtons {
         justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 830px) {
+    .status-card-container {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    .status-card-process {
+        flex-flow: column;
+        height: auto;
+        width: max-content;
     }
 }
 
