@@ -190,7 +190,7 @@
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-gap: 2px;
     white-space: nowrap;
-    grid-template-rows: repeat(auto-fit, minmax(17px, 1fr));
+    /* grid-template-rows: repeat(auto-fit, minmax(17px, 1fr)); */
     min-height: 120px;
 }
 
@@ -202,6 +202,41 @@
 
 .designSet-detail-name {
     text-align: right;
+}
+
+.designSet-title {
+    position: absolute;
+    margin-top: -17px;
+}
+
+.designSet-product-container {
+    padding-top: 10px;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #bdbdbd;
+}
+
+.designSet-product {
+    display: grid;
+    grid-template-columns: .08fr 1fr;
+}
+
+.designSet-product:nth-child(odd) {
+    background-color: #cacaca;
+}
+
+.product-info {
+    font-style: italic;
+    margin-left: 21px;
+}
+
+.product-detail {
+    grid-column: 2;
+}
+
+.product-quantity {
+    grid-row: 2;
+    padding-left: 5px;
 }
 
 /* Purcahse Item Modal */
