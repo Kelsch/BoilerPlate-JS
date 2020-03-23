@@ -218,7 +218,7 @@
 
 .designSet-product {
     display: grid;
-    grid-template-columns: .08fr 1fr;
+    grid-template-columns: 50px 1fr;
 }
 
 .designSet-product:nth-child(odd) {
@@ -289,6 +289,11 @@
     resize: none;
     min-height: 50px;
     width: -webkit-fill-available;
+}
+
+/* Layout */
+.layout-button {
+    padding-bottom: 5px;
 }
 
 @media screen and (max-width: 800px) {

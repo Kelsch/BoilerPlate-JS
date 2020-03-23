@@ -230,12 +230,12 @@
                     14801 A1 Lot 211 Lake View Estates
                 </div>
                 <div id="infoDetails_contentContainer" class="loadDetails-content modal-card-details-container">
-                    <designset-info-card designsetinfo='{"salesRepName": "Zach (Inhouse)", "branchName": "Zach COD", "shopCost": 11069.11, "finalTotal": 17032.98, "addressName": "Kevin Batchlor", "address": "1925 E. Ashley Valley Lane, Sandy UT 84092", "addressPhoneNumber": "801-560-4095"}'
+                    <designset-info-card designsetinfo='{"salesRepName": "Zach (Inhouse)", "salesRepNumber": "801-560-4095", "branchName": "Zach COD", "shopCost": 11069.11, "jobStatus": "Order Shipped", "finalTotal": 17032.98, "addressName": "Kevin Batchlor", "address": "1925 E. Ashley Valley Lane, Sandy UT 84092", "addressPhoneNumber": "801-560-4095"}'
                                         designsetdetail='[{"jobDisplayName": "14801 A1 - C", "specie": "MDF", "upperDoor": "Colonial", "lowerDoor": "Cambridge", "front": "Slab", "finish": "Rough White", "glaze": "(None)", "finishOption": "(None)", "distress": "(None)", "sheen": "20 Sheen", "interior": "White", "drawer": "Melamine", "hinge": "Soft Close", "slide": "Full Ext - Soft Close", "orderDate": "01/27/2020", "shipDate": "03/18/2020", "scheduledTime": "", "completeDate": "03/12/2020", "installer": "KB Cabinets", "installDate": "03/19/2020", "closeDate": "", "products": [{"quantity": 1, "productName": "WBK2757*12D", "productMods": "Bottom: No Bottom", "productNotes": "Notes and Such"}]}]'></designset-info-card>
                 </div>
             </div>
         </div>
-        <div id="status_modal" class="loadDetails-tint">
+        <!-- <div id="status_modal" class="loadDetails-tint">
             <div id="status_modalContents" class="loadDetailsContainer">
                 <div class="statusDetails-jobName loadDetails-loadName">
                     14801 A1 Lot 211 Lake View Estates
@@ -245,8 +245,8 @@
                     <purchase-item-card purchaseitems='[{"Quantity": 18, "Name": "Blum TandemTandemTandemTandemTandemTandem 18\"", "Description": "Test Description"}, {"Quantity": 17, "Name": "Pulls", "Description": "0924-199"}, {"Quantity": 18, "Name": "Blum Tandem 18\"", "Description": "Test Description"}, {"Quantity": 17, "Name": "Pulls", "Description": "0924-199"}, {"Quantity": 18, "Name": "Blum Tandem 18\"", "Description": "Test Description"}, {"Quantity": 17, "Name": "Pulls", "Description": "0924-199"}, {"Quantity": 18, "Name": "Blum Tandem 18\"", "Description": "Test Description"}, {"Quantity": 17, "Name": "Pulls", "Description": "0924-199"}, {"Quantity": 18, "Name": "Blum Tandem 18\"", "Description": "Test Description"}, {"Quantity": 17, "Name": "Pulls", "Description": "0924-199"}]'></purchase-item-card>
                 </div>
             </div>
-        </div>
-        <div id="note_modal" class="loadDetails-tint">
+        </div> -->
+        <!-- <div id="note_modal" class="loadDetails-tint">
             <div id="note_modalContents" class="loadDetailsContainer">
                 <div class="noteDetails-jobName loadDetails-loadName">
                     14801 A1 Lot 211 Lake View Estates
@@ -269,8 +269,8 @@
                     <log-card userName="Kyle Kelsch" timeStamp="3/04/2020 8:09:45 AM" logText="Install Date was changed from 3/09/2020 to 3/12/2020"></log-card>
                 </div>
             </div>
-        </div>
-        <div id="job_modal" class="loadDetails-tint">
+        </div> -->
+        <!-- <div id="job_modal" class="loadDetails-tint">
             <div id="job_modalContents" class="loadDetailsContainer">
                 <div class="jobDetails-jobName loadDetails-loadName">
                     14801 A1 Lot 211 Lake View Estates
@@ -279,6 +279,16 @@
                     <div class="modal-card">
                         Job Info
                     </div>
+                </div>
+            </div>
+        </div> -->
+        <div id="layout_modal" class="loadDetails-tint">
+            <div id="layout_modalContents" class="loadDetailsContainer">
+                <div class="jobDetails-jobName loadDetails-loadName">
+                    14801 A1 Lot 211 Lake View Estates
+                </div>
+                <div id="layoutDetails_contentContainer" class="loadDetails-content">
+                    <layout-card layouts='[{"layoutName": "Layout 1", "layoutLink": "TEstset"}, {"layoutName": "Layout 2", "layoutLink": "TEstset2"}]'></layout-card>
                 </div>
             </div>
         </div>
@@ -309,9 +319,13 @@
                                 Yes
                             </div>
                     
-                            <div class="loadDetails-datails loadDetails-jobShippingNotes">
+                            <!-- <div class="loadDetails-datails loadDetails-jobShippingNotes">
                                 <span class="loadDetails-jobLabel">C.O.D.:</span>
                                 No
+                            </div> -->
+                            <div class="loadDetails-datails loadDetails-jobShippingNotes">
+                                <span class="loadDetails-jobLabel">Pay:</span>
+                                $664.26
                             </div>
                             <div class="loadDetails-datails loadDetails-jobShippingNotes">
                                 <span class="loadDetails-jobLabel">Shipping Notes:</span>
@@ -319,23 +333,26 @@
                                 801-633-3342
                             </div>
                             <div class="loadDetails-datails loadDetails-jobButtons">
-                                <span class="loadDetails-jobButton" data-buttontype="info">
+                                <span class="loadDetails-jobButton" data-buttontype="info" title="info">
                                     <i class="material-icons">info</i>
                                 </span>
-                                <span class="loadDetails-jobButton" data-buttontype="status">
+                                <!-- <span class="loadDetails-jobButton" data-buttontype="status" title="status">
                                     <i class="material-icons">directions_run</i>
-                                </span>
-                                <span class="loadDetails-jobButton" data-buttontype="note">
+                                </span> -->
+                                <!-- <span class="loadDetails-jobButton" data-buttontype="note" title="note">
                                     <i class="material-icons">note</i>
-                                </span>
-                                <span class="loadDetails-jobButton" data-buttontype="job">
+                                </span> -->
+                                <!-- <span class="loadDetails-jobButton" data-buttontype="job" title="job">
+                                    <i class="material-icons">arrow_forward</i>
+                                </span> -->
+                                <span class="loadDetails-jobButton" data-buttontype="layouts" title="layouts">
                                     <i class="material-icons">arrow_forward</i>
                                 </span>
                             </div>
                         </div>
                         <div class="loadDetails-content loadDetails-loadJobCard">
                             <job-card jobName="15366 Lot 61 Windsor" jobAddress="456 E. 320 No., Vineyard UT 84059" jobCabinetCount="17"
-                                    jobhomeowner="1" jobcod="1" jobshippingnotes="Need to schedule with Homeowner to install. 801-633-3342">
+                                    jobhomeowner="1" jobcod="1" jobInstallerPay="$664.26" jobInstallNotes="Need to schedule with Homeowner to install. 801-633-3342">
                             </job-card>
                         </div>
                     </div>
