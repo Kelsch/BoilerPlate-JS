@@ -1,0 +1,21 @@
+{
+    "short_name": "PDInstall",
+    "name": "PDInsatll",
+    "icons": [
+      {
+        "src": "lib/images/icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "lib/images/icons-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#6200ee",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#6200ee"
+  }

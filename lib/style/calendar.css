@@ -1,0 +1,185 @@
+.calendarGrid {
+    border-left: #dadce0 1px solid;
+}
+
+.calendarContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.calendarLoadContainer {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+}
+
+.month-labelContainer {
+    display: flex;
+    align-items: center;
+    padding: 0px 0px 10px 0px;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.calendarLabel {
+    /* padding: 0px 0px 10px 0px; */
+    color: #6b6b6b;
+    font-size: 1.3rem;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.month-change {
+    margin: 0px 5px 0px 0px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.month-change:hover {
+    background-color: #efefef;
+}
+
+.month-change:active {
+    background-color: #e4e4e4;
+}
+
+.calendarMonth {
+    color: black;
+    cursor: pointer;
+}
+
+.dayOfWeek {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    border-bottom: #dadce0 1px solid;
+}
+
+.dateGrid {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    text-align: center;
+    height: calc(100vh / 2);
+}
+
+.dateWeek {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-bottom: #dadce0 1px solid;
+}
+
+.date {
+    display: grid;
+    justify-content: center;
+    padding: 10px;
+    border-right: #dadce0 1px solid;
+    min-width: 20px;
+    cursor: pointer;
+}
+
+    .date:hover {
+        background-color: #efefef;
+    }
+
+    .date:active {
+        background-color: #e4e4e4;
+    }
+
+.date-nonWorkDay {
+    background-color: #f7f7f7;
+}
+
+.date-selectedMobile {
+    background-color: #efefef;
+}
+
+.date-greyMonth {
+    color: #565656;
+}
+
+.dateNumber {
+    align-self: start;
+    padding: 5px;
+    border-radius: 20px;
+    min-width: 18px;
+    transition: .2s ease-out;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    pointer-events: none;
+}
+
+.dateNumber-selected {
+    background-color: #66a6ff;
+    color: #ffffff;
+}
+
+.dateNumber-currentDay {
+    background-color: #296cc7;
+    color: #ffffff;
+}
+
+.dateNumber-jobIndicator {
+    align-items: center;
+    display: grid;
+    grid-auto-columns: max-content;
+    grid-gap: 5px;
+    grid-auto-flow: column;
+    overflow: hidden;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    pointer-events: none;
+}
+
+.dateNumber-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: #a500bd;
+    border-radius: 10px;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+    pointer-events: none;
+}
+
+.loadContainer {
+    overflow-y: auto;
+    overscroll-behavior-y: none;
+}
+
+.stopScroll {
+    overflow-y: hidden;
+}
+
+.load {
+    width: -webkit-fill-available;
+    margin: 5px;
+}
+
+.loadLabel {
+    padding-top: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media screen and (max-height: 717px) {
+    .dateNumber {
+        padding: 0px;
+    }
+}
+
+@media screen and (max-height: 600px) {
+    .dateGrid {
+        height: auto;
+    }
+}
